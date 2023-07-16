@@ -18,15 +18,12 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
     <packaging>pom</packaging>
-    <modules>
-        <module>domain</module>
-    </modules>
     <dependencies>
+        <!-- https://mvnrepository.com/artifact/org.apache.kafka/kafka-clients -->
         <dependency>
-            <artifactId>domain</artifactId>
-            <groupId>com.bgr</groupId>
-            <version>1.0-SNAPSHOT</version>
-            <scope>compile</scope>
+            <groupId>org.apache.kafka</groupId>
+            <artifactId>kafka-clients</artifactId>
+            <version>3.5.0</version>
         </dependency>
     </dependencies>
 </project>
