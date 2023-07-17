@@ -12,13 +12,16 @@ public class MessageProducerDefaultImpl implements MessageProducer {
 
     private final KafkaProducer<String, String> producer;
 
-    public MessageProducerDefaultImpl() {
+    private final String topic;
+
+    public MessageProducerDefaultImpl(String topic) {
         super();
+        this.topic = topic;
         producer = new KafkaProducer<>(PropertyConfig.getProducerProperty());
     }
 
     @Override
-    public void send(String topic, String message) {
+    public void send(String message) {
         ProducerRecord<String, String> record = new ProducerRecord<>(topic, message);
         producer.send(record, (metadata, exception) -> {
             if (exception != null) {
