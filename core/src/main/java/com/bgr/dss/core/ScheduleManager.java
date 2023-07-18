@@ -8,12 +8,12 @@ import java.util.List;
 
 public class ScheduleManager {
 
-    private final String topic = "test-topic";
+    private final static String topic = "test-topic";
 
-    public Scheduler createScheduler() {
+    public static Scheduler createScheduler() {
         // Dependencies
         MessageProducer producer = new MessageProducerDefaultImpl(topic);
         MessageConsumer messageConsumer = new MessageConsumer(List.of(topic));
-        return new SchedulerImpl(producer);
+        return new SchedulerImpl(producer, messageConsumer);
     }
 }
